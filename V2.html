@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الهواتف المحمولة - حلول إبداعية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --accent: #FF6584;
+            --light: #F5F5F7;
+            --dark: #2D2B55;
+            --gray: #8A8AA3;
+            --success: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* التمرير السلس */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* التصميم العام */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* الشريط العلوي */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            right: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* قسم البطل */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiM2QzYzRkYiPjwvcmVjdD48cGF0aCBkPSJNMCAwTDEwMDAgMTAwMFoiIGZpbGw9IiM0QTQ0QzYiPjwvcGF0aD48L3N2Zz4=');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 101, 132, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 101, 132, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-right: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-link i {
+            margin-right: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* قسم نموذج الطلب */
+        .request-form {
+            background: linear-gradient(135deg, var(--light) 0%, #e8e8f0 100%);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .form-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .form-body {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .rating-label {
+            margin-left: 10px;
+            font-weight: 600;
+        }
+        
+        .stars {
+            display: flex;
+            direction: ltr;
+        }
+        
+        .star {
+            color: #ddd;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.2s ease;
+        }
+        
+        .star:hover,
+        .star.active {
+            color: gold;
+        }
+        
+        /* قسم معرض الأعمال */
+        .portfolio {
+            background-color: white;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .portfolio-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+            background: white;
+        }
+        
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .portfolio-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* قسم من نحن */
+        .about {
+            background: linear-gradient(135deg, var(--light) 0%, #e8e8f0 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        /* التذييل */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            right: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b8b8d0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-left: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b8b8d0;
+            font-size: 0.9rem;
+        }
+        
+        /* تأثيرات التمرير */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 0 0 30px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .rating {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-right: 0;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-mobile-alt"></i>
+                    خدمات الهواتف
+                </a>
+                
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#request">طلب خدمة</a></li>
+                    <li><a href="#portfolio">معرض الأعمال</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>نحوِّل أفكارك إلى تجارب رقمية مُبهرة</h1>
+                <p>نقدم حلولاً إبداعية متكاملة لجميع مشاكل الهواتف المحمولة، من الإصلاح إلى الحماية من الاختراقات، مع ضمان الجودة والاحترافية.</p>
+                <a href="#request" class="btn btn-outline">اطلب خدمة الآن</a>
+                <a href="#services" class="btn">استكشف خدماتنا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا المتكاملة</h2>
+                <p>نقدم مجموعة واسعة من الخدمات الاحترافية لتلبية جميع احتياجاتك التقنية</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>إصلاح الهواتف</h3>
+                        <p>إصلاح شامل لجميع مشاكل الهواتف الذكية، من الشاشات المكسورة إلى مشاكل الشحن والبطارية.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>الحماية من الاختراق</h3>
+                        <p>حماية جهازك من الفيروسات والبرمجيات الخبيثة واختراق البيانات بأساليب متطورة.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تصميم الصور</h3>
+                        <p>تصميم جرافيك إبداعي للصور والشعارات والمواد الترويجية بجودة عالية واحترافية.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>تصميم المواقع</h3>
+                        <p>تصميم مواقع ويب متجاوبة وجذابة، بما في ذلك السير الذاتية والمواقع الشخصية.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>الدعم الفني</h3>
+                        <p>تقديم استشارات فنية وحلول لمشاكل البرامج والتطبيقات المختلفة على هاتفك.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>إنشاء رموز QR</h3>
+                        <p>إنشاء رموز QR مخصصة لروابطك ومواقعك ومعلومات الاتصال الخاصة بك.</p>
+                        <a href="#request" class="service-link">اطلب الخدمة <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نموذج الطلب -->
+    <section class="request-form" id="request">
+        <div class="container">
+            <div class="section-title">
+                <h2>طلب خدمة إلكترونية</h2>
+                <p>املأ النموذج أدناه لطلب الخدمة التي تحتاجها، وسنقوم بالرد عليك في أقرب وقت</p>
+            </div>
+            
+            <div class="form-container fade-in">
+                <div class="form-header">
+                    <h3>نموذج طلب الخدمة</h3>
+                    <p>سنكون سعداء لمساعدتك في حل مشكلتك</p>
+                </div>
+                
+                <div class="form-body">
+                    <form id="serviceRequestForm">
+                        <div class="form-group">
+                            <label for="name">اسم صاحب الطلب *</label>
+                            <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="أدخل رقم هاتفك" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">اختر الخدمة المطلوبة</option>
+                                <option value="إصلاح الهواتف">إصلاح الهواتف</option>
+                                <option value="الحماية من الاختراق">الحماية من الاختراق</option>
+                                <option value="تصميم الصور">تصميم الصور</option>
+                                <option value="تصميم المواقع">تصميم المواقع</option>
+                                <option value="الدعم الفني">الدعم الفني</option>
+                                <option value="إنشاء رموز QR">إنشاء رموز QR</option>
+                                <option value="استفسار عام">استفسار عام</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="problem">وصف المشكلة أو الطلب *</label>
+                            <textarea id="problem" class="form-control" placeholder="صف مشكلتك أو طلبك بالتفصيل..." required></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <div class="rating">
+                                <span class="rating-label">تقييم الخدمة:</span>
+                                <div class="stars">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn">إرسال الطلب</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم معرض الأعمال -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض أعمالنا</h2>
+                <p>استكشف بعض مشاريعنا السابقة التي نفخر بها</p>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="web">مواقع ويب</button>
+                <button class="filter-btn" data-filter="design">تصميم</button>
+                <button class="filter-btn" data-filter="tools">أدوات</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in" data-category="web">
+                    <div class="portfolio-img">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>صفحة سيرة ذاتية</h3>
+                        <p>تصميم صفحة ويب للسيرة الذاتية باستخدام HTML/CSS</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="tools">
+                    <div class="portfolio-img">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>مولد رموز QR</h3>
+                        <p>أداة لإنشاء رموز QR مخصصة للروابط والنصوص</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="web">
+                    <div class="portfolio-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>مشاريع HTML</h3>
+                        <p>تصميم وتطوير صفحات ويب ثابتة باستخدام HTML</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="tools">
+                    <div class="portfolio-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>مشاريع الذكاء الاصطناعي</h3>
+                        <p>تطبيقات وتكاملات مع تقنيات الذكاء الاصطناعي</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="tools">
+                    <div class="portfolio-img">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>تقصير الروابط</h3>
+                        <p>أداة لتقصير الروابط وإنشاء رموز QR وباركود</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="tools">
+                    <div class="portfolio-img">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>التقاط الصور</h3>
+                        <p>واجهة ويب وأدوات بايثون للتعامل مع الكاميرا</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>من نحن</h2>
+                <p>فريق من المحترفين المبدعين ملتزمون بتقديم أفضل الحلول التقنية</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>نحو مستقبل رقمي أفضل</h2>
+                    <p>نحن فريق من المطورين والمصممين والمختصين في مجال التقنية، نعمل معًا لتقديم حلول مبتكرة تلبي احتياجات عملائنا في عالم الهواتف المحمولة والتقنيات الرقمية.</p>
+                    <p>نؤمن بأن التكنولوجيا يجب أن تكون في متناول الجميع، ونسعى جاهدين لجعل تجربتك التقنية سلسة وممتعة وآمنة.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">+10</div>
+                            <div class="stat-label">مشروع ناجح</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">عملاء راضون</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual fade-in">
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">دعم فني</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">جودة وضمان</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">سريع</div>
+                            <div class="stat-label">تسليم الخدمات</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">مرن</div>
+                            <div class="stat-label">حلول مخصصة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>خدمات الهواتف</h3>
+                    <p>نقدم حلولاً إبداعية متكاملة لجميع مشاكل الهواتف المحمولة، من الإصلاح إلى الحماية من الاختراقات.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#request">طلب خدمة</a></li>
+                        <li><a href="#portfolio">معرض الأعمال</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">إصلاح الهواتف</a></li>
+                        <li><a href="#services">الحماية من الاختراق</a></li>
+                        <li><a href="#services">تصميم الصور</a></li>
+                        <li><a href="#services">تصميم المواقع</a></li>
+                        <li><a href="#services">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +123456789</li>
+                        <li><i class="fas fa-envelope"></i> info@example.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> العنوان، المدينة، الدولة</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2023 خدمات الهواتف</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات Telegram
+        const BOT_TOKEN = '7144838322:AAEYLHsGFavk7BAlHqfcsV5XuXvOEadS6KA';
+        const CHAT_ID = '6113061454';
+        
+        // تفعيل القائمة المتحركة
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // تأثير التمرير للشريط العلوي
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // تأثير النجوم في التقييم
+            const stars = document.querySelectorAll('.star');
+            let currentRating = 0;
+            
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const value = parseInt(this.getAttribute('data-value'));
+                    currentRating = value;
+                    
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) <= value) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseover', function() {
+                    const value = parseInt(this.getAttribute('data-value'));
+                    
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) <= value) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+                
+                star.addEventListener('mouseout', function() {
+                    stars.forEach(s => {
+                        if (parseInt(s.getAttribute('data-value')) > currentRating) {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // تصفية معرض الأعمال
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // إزالة النشاط من جميع الأزرار
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // إضافة النشاط للزر المختار
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // تأثير الظهور عند التمرير
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // التحقق عند التحميل وعند التمرير
+            window.addEventListener('scroll', fadeInOnScroll);
+            window.addEventListener('load', fadeInOnScroll);
+            
+            // إرسال النموذج إلى Telegram
+            const form = document.getElementById('serviceRequestForm');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const problem = document.getElementById('problem').value;
+                
+                // إنشاء رسالة منظمة
+                const message = `طلب خدمة جديد:%0A%0A
+                🧑‍💼 الاسم: ${name}%0A
+                📞 الهاتف: ${phone}%0A
+                🛠️ الخدمة: ${service}%0A
+                📝 الوصف: ${problem}%0A
+                ⭐ التقييم: ${currentRating}/5%0A
+                🕒 الوقت: ${new Date().toLocaleString('ar-SA')}%0A
+                📍 المصدر: موقع الويب`;
+                
+                // إرسال الرسالة إلى Telegram
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.');
+                        form.reset();
+                        
+                        // إعادة تعيين النجوم
+                        stars.forEach(star => star.classList.remove('active'));
+                        currentRating = 0;
+                    } else {
+                        alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('حدث خطأ في الاتصال. يرجى المحاولة مرة أخرى.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
